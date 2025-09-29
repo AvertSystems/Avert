@@ -1,0 +1,88 @@
+.md-item a:link {
+        color: white;
+        text-decoration: none;
+}
+.md-item a:visited {
+        color: white;
+        text-decoration: none;
+}
+.md-item a:hover {
+        color: #8F37FA;
+        text-decoration: none;
+}
+.md-item a:active {
+        color: white;
+        text-decoration: none;
+}
+.sm-item a:link {
+        color: white;
+        text-decoration: none;
+}
+.sm-item a:visited {
+        color: white;
+        text-decoration: none;
+}
+.sm-item a:hover {
+        color: #8F37FA;
+        text-decoration: none;
+}
+.sm-item a:active {
+        color: white;
+        text-decoration: none;
+}
+.sm-item, .md-item {
+        padding-top: 7px;
+        padding-bottom: 7px;
+}
+.sButton {
+        position: relative;
+        bottom: 25px;
+}
+#sm-dropdown, #mdm-menu, #menu  {
+        display: none;
+}
+@media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+    form > input {
+        display: inline-block;
+    }
+    form > label {
+        display: inline-block;
+    }
+}
+#mainPanel {
+        z-index: 8;
+        position: relative;
+}
+#mdm-menu {
+        position: absolute;
+        right: 0px;
+        top: 25px;
+        width: 25%;
+        z-index: 1000;
+        padding: none !important;
+        display:flex;
+        flex-direction: column;
+}
+#md-dropdown {
+        width: 100%;
+        color: white;
+        text-align: center;
+}
+#md-nav {
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: 18px;
+}
+.md-item {
+        flex-basis: 100%;
+        width: 100%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        border-bottom: 2px solid #8F37FA;
+        border-left: 2px solid #8F37FA;
+        padding-top: 5px;
+        padding-bottom: 5px;
+}

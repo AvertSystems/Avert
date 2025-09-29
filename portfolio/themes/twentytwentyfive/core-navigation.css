@@ -1,0 +1,21 @@
+#menu .menu-item {
+  margin-right: 40px;
+  font-size: 17px;
+}
+#menu .menu-item a :link {
+  text-decoration: none;
+}
+#menu .menu-item a :visited {
+  text-decoration: none;
+}
+#menu .menu-item a :hover {
+  color: #8F37FA;
+  text-decoration: underline;
+}
+#menu .menu-item a :active {
+  text-decoration: none;
+}
+a :hover {
+  color: #8F37FA;
+  text-decoration: underline;
+}
