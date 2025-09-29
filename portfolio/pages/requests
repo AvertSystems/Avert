@@ -1,0 +1,127 @@
+<div id="mainPanel" style="background-color:#35D8F1;padding:20px;border: 7px solid #8F37FA;border-radius:20px;width:100%;">
+<h1 id="lg-pageTitle" style="width:100%;color:#8F37FA;text-decoration:underline;text-decoration-color:#8F37FA;margin-bottom:65px;display:none;">Thanks for your request!</h1>
+<h2 id="sm-pageTitle" style="width:100%;color:#8F37FA;text-decoration:underline;text-decoration-color:#8F37FA;margin-bottom:40px;display:none;">Request Confirmation</h2>
+<div id="confirmation" style="display:flex;flex-direction:row;flex-wrap:wrap;">
+<p id="confirmationPara" class="desc" style="flex-basis:100%;color:black;">Confirm the details of your request below.</p>
+<p class="confirmationPara" style="flex-basis:100%;color:black;">First Name: <span id="confirmFirst"></span></p>
+<p class="confirmationPara" style="flex-basis:100%;color:black;">Last Name: <span id="confirmLast></span></p>
+<p class="confirmationPara" style="flex-basis:100%;color:black;">Email: <span id="confirmEmail"></span></p>
+<p class="confirmationPara" style="flex-basis:100%;color:black;">Phone: <span id="confirmPhone"></span></p>
+<p class="confirmationPara" style="flex-basis:100%;color:black;">Description: <span id="confirmDesc"></span></p>
+<p class="confirmationPara" style="flex-basis:100%;color:black;">If the details above are correct, click submit. You will receive a confirmation email for your request shortly.</p>
+<button id="backtohome" style="flex-basis:100px;height:20px;color:white;background-color:#8F37FA;padding:18px;border: 7px solid #8F37FA;border-radius:20px;font-size:20px;">Back to Home</button>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+<script>
+   $( window ).on("load", function() {
+      $("head").append("<link rel='stylesheet' href='https://code.jquery.com/ui/1.13.3/themes/smoothness/jquery-ui.css'>");
+      var vpw = $( window ).width();
+      $("#sysadminsubmit").text(vpw);
+      if (vpw < 600) {
+         //$("#mainPanel").css("box-sizing","border-box");
+         //$("#mainPanel").css("border-radius","0px");
+         $("#lg-pageTitle").css("display","none");
+         $("#sm-pageTitle").show();
+         $("label").css("flex-basis","50%");
+         $("form input").not("#service").css({"flex-basis":"90%","margin-bottom":"10px"});
+         $("textarea").css({"flex-basis":"90%","margin-bottom":"10px"});
+      } else if (vpw >= 600 && vpw < 768) {
+         $("#lg-pageTitle").css("display","none");
+         $("#sm-pageTitle").show();
+         $("label").css("flex-basis","50%");
+         $("form input").not("#service").css({"flex-basis":"90%","margin-bottom":"10px"});
+         $("textarea").css({"flex-basis":"90%","margin-bottom":"10px"});
+      } else if (vpw >= 768 && vpw < 992) {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("form").css("height","+=100");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      } else if (vpw >= 992 && vpw < 1200) {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("form").css("height","+=100");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      } else {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("form").css("height","+=100");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      }
+   });
+   $( window ).on("resize", function() {
+      var vpw = $( window ).width();
+      $("#sysadminsubmit").text(vpw);
+      if (vpw < 600) {
+         //$("#mainPanel").css("box-sizing","border-box");
+         //$("#mainPanel").css("border-radius","0px");
+         $("#lg-pageTitle").css("display","none");
+         $("#sm-pageTitle").show();
+         $("label").css("flex-basis","50%");
+         $("form input").not("#service").css({"flex-basis":"90%","margin-bottom":"10px"});
+         $("textarea").css({"flex-basis":"90%","margin-bottom":"10px"});
+      } else if (vpw >= 600 && vpw < 768) {
+         $("form").css("height","835px");
+         $("#lg-pageTitle").css("display","none");
+         $("#sm-pageTitle").show();
+         $("label").css("flex-basis","50%");
+         $("form input").not("#service").css({"flex-basis":"90%","margin-bottom":"10px"});
+         $("textarea").css({"flex-basis":"90%","margin-bottom":"10px"});
+      } else if (vpw >= 768 && vpw < 992) {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("form").css("height","615px");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      } else if (vpw >= 992 && vpw < 1200) {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      } else {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      }
+   });
+function request() {
+      //let firstName = $("#firstName").val();
+      //let lastName = $("#lastName").val();
+      var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {
+               document.getElementById("dialog-message").innerHTML = this.responseText;
+               $("#dialog-message").show();
+            }
+          }
+        };
+        xhttp.open("POST", "../requests.php");
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("firstName=jane");
+    }
+   $("#sysAdminDesc").click(function(){
+      $("#sysAdminPara").toggle();
+      $(this).toggle();
+      $("#sysAdminDescHide").toggle();
+   });
+   $("#sysAdminDescHide").click(function(){
+      $("#sysAdminPara").toggle();
+      $(this).toggle();
+      $("#sysAdminDesc").toggle();
+   });
+   $("#backtohome").click(function(){
+      $( "window" ).href(/);
+    });
+</script>

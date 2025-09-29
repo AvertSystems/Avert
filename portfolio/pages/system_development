@@ -1,0 +1,185 @@
+<div id="mainPanel" style="background-color:#35D8F1;padding:20px;border: 7px solid #8F37FA;border-radius:20px;">
+<h1 id="lg-pageTitle" style="width:100%;color:#8F37FA;text-decoration:underline;text-decoration-color:#8F37FA;margin-bottom:65px;">System Development</h1>
+<h2 id="sm-pageTitle" style="width:100%;color:#8F37FA;text-decoration:underline;text-decoration-color:#8F37FA;margin-bottom:40px;display:none;">System Development</h2>
+<div style="display:flex;flex-direction:row;flex-wrap:wrap;">
+<span id="sysDevDesc" class="viewDesc" style="flex-basis:200px;">View description<span id="sysDevArrow" class="arrow" style="position:relative;left:5px;">&#9662;</span>
+</span>
+<span id="sysDevDescHide" class="viewDesc" style="flex-basis:200px;display:none;">View description<span id="sysDevArrow" class="arrow" style="position:relative;left:5px;">&#9652;</span>
+</span>
+<p id="sysDevPara" class="desc" style="flex-basis:675px;color:black;display:none;">Select this service if you are looking to improve upon or create a new system from scratch. A system can be an inventory system to keep track of available products or a customer database tracking sales to identify trends and grow your business further. As the graphic shows, there are 7 steps in this process. The first step is to identify a new system to be made or ways to improve upon a system already in place. In this phase you will detail to me what problems you want to fix and what opportunities you would like to seize. From there, you will outline to me the requirements for successful completion of the project including project deliverables and any timelines you would like to keep. Once all this information is gathered, I will do an in depth analysis to determine how to implement all the requirements of the new system, creating any applicable charts and diagrams detailing how the system will be implemented with an estimated time of completion. Once the new system design is agreed upon, I will build it, along with supporting documentation of how to operate and maintain the system. Once the system is built, it must be tested to ensure it is working correctly before going into production. Finally, the system will be deployed in a production environment where it will be monitored and evaluated for further improvements. Fill out the form below to get started!</p>
+</div>
+<form action="../requests.php" method="post" style="display:flex;flex-direction:row;align-content:space-around;align-items:flex-start;flex-wrap:wrap;color:black;">
+<label class="formLabel"  style="flex-basis:125px;" for="fname">First name:</label>
+<input type="text" placeholder="First Name" style="flex-basis:185px;height:19px;margin-right:7px;" id="firstName" name="firstName" maxlength="20" required>
+<label class="formLabel" style="flex-basis:125px;" for="lname">Last name:</label>
+<input type="text" placeholder="Last Name"  style="flex-basis:185px;height:19px;" id="lastName" name="lastName" maxlength="20" required>
+<label class="formLabel"  style="flex-basis:125px;" for="email">Email:</label>
+<input type="email" placeholder="Ex: user@website.com" style="flex-basis:185px;height:19px;margin-right:7px;" id="email" name="email" maxlength="30" pattern="[a-zA-Z0-9]+@[a-zA-Z]+.[a-zA-Z]+" required>
+<label class="formLabel" style="flex-basis:125px;" for="phone">Phone:</label>
+<input style="flex-basis:185px;height:19px;" placeholder="Ex: 555-555-5555" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12"/>
+<label style="flex-basis:125px;" class="formLabel" for="description">Description:</label>
+<textarea style="flex-basis:510px;" placeholder="Please describe your project in 500 characters or less." type="text" rows="30" id="description" name="description" maxlength="500" required></textarea>
+<!--<button id="sysadminsubmit" style="flex-basis:100px;height:20px;color:white;background-color:#8F37FA;padding:18px;border: 7px solid #8F37FA;border-radius:20px;font-size:20px;">Submit</button>-->
+<input style="flex-basis:185px;height:20px;margin-right:10px;display:none;" type="text" id="service" name="service" value="System Development" />
+</form>
+<button id="sysadminsubmit2" onclick="request()" style="flex-basis:100px;height:20px;color:white;background-color:#8F37FA;padding:18px;border: 7px solid #8F37FA;border-radius:20px;font-size:20px;"><span style="position:relative;bottom:9px;" class="sButton">Submit</span></button>
+</div>
+<div id="confirmPanel" style="background-color:#35D8F1;padding:20px;border: 7px solid #8F37FA;border-radius:20px;width:100%;display:none;">
+<h1 id="lgConfirmTitle" class="lgConfirmTitle" style="width:100%;color:#8F37FA;text-decoration:underline;text-decoration-color:#8F37FA;margin-bottom:65px;display:none;">Thanks for your request!</h1>
+<h2 id="smConfirmTitle" class="smConfirmTitle" style="width:100%;color:#8F37FA;text-decoration:underline;text-decoration-color:#8F37FA;margin-bottom:40px;display:none;">Thanks for your request!</h2>
+<div id="confirmation" style="display:flex;flex-direction:row;flex-wrap:wrap;">
+<p id="confirmationPara" class="desc" style="flex-basis:100%;color:black;">Review the details of your <span id="confirmService" style="color:black;"></span> request below.</p>
+<p class="confirmationPara" style="flex-basis:100%;color:#8F37FA;">First Name: <span id="confirmFirst" style="color:black;"></span></p>
+<p class="confirmationPara" style="flex-basis:100%;color:#8F37FA;">Last Name: <span id="confirmLast" style="color:black;"></span></p>
+<p class="confirmationPara" style="flex-basis:100%;color:#8F37FA;">Email: <span id="confirmEmail" style="color:black;"></span></p>
+<p class="confirmationPara" style="flex-basis:100%;color:#8F37FA;">Phone: <span id="confirmPhone" style="color:black;"></span></p>
+<p class="confirmationPara" style="flex-basis:100%;color:#8F37FA;">Description: <span id="confirmDesc" style="color:black;"></span></p>
+<!--<div id="confirm-message" style="display:none;"></div>-->
+<p class="confirmationPara" style="flex-basis:100%;color:black;">You will receive a confirmation email for your request shortly. Have a great day!</p>
+<button id="backtohome" style="flex-basis:100px;height:20px;color:white;background-color:#8F37FA;padding:18px;border: 7px solid #8F37FA;border-radius:20px;font-size:20px;"><span style="position:relative;bottom:9px;" class="sButton">Back to Home</span></button>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+<script>
+   $( window ).on("load", function() {
+      $("head").append("<link rel='stylesheet' href='/wp-content/themes/twentytwentyfive/my.css'>");
+      $("head").append("<link rel='stylesheet' href='https://code.jquery.com/ui/1.13.3/themes/smoothness/jquery-ui.css'>");
+      var vpw = $( window ).width();
+      $("#sysadminsubmit").text(vpw);
+      if (vpw < 600) {
+         //$("#mainPanel").css("box-sizing","border-box");
+         //$("#mainPanel").css("border-radius","0px");
+         $("#lg-pageTitle").css("display","none");
+         $("#sm-pageTitle").show();
+         $("label").css("flex-basis","50%");
+         $("form input").not("#service").css({"flex-basis":"90%","margin-bottom":"10px"});
+         $("textarea").css({"flex-basis":"90%","margin-bottom":"10px"});
+      } else if (vpw >= 600 && vpw < 768) {
+         $("#lg-pageTitle").css("display","none");
+         $("#sm-pageTitle").show();
+         $("label").css("flex-basis","50%");
+         $("form input").not("#service").css({"flex-basis":"90%","margin-bottom":"10px"});
+         $("textarea").css({"flex-basis":"90%","margin-bottom":"10px"});
+      } else if (vpw >= 768 && vpw < 992) {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("form").css("height","+=100");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      } else if (vpw >= 992 && vpw < 1200) {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("form").css("height","+=100");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      } else {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("form").css("height","+=100");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      }
+   });
+   $( window ).on("resize", function() {
+      var vpw = $( window ).width();
+      $("#sysadminsubmit").text(vpw);
+      if (vpw < 600) {
+         //$("#mainPanel").css("box-sizing","border-box");
+         //$("#mainPanel").css("border-radius","0px");
+         $("#lg-pageTitle").css("display","none");
+         $("#sm-pageTitle").show();
+         $("label").css("flex-basis","50%");
+         $("form input").not("#service").css({"flex-basis":"90%","margin-bottom":"10px"});
+         $("textarea").css({"flex-basis":"90%","margin-bottom":"10px"});
+      } else if (vpw >= 600 && vpw < 768) {
+         $("form").css("height","835px");
+         $("#lg-pageTitle").css("display","none");
+         $("#sm-pageTitle").show();
+         $("label").css("flex-basis","50%");
+         $("form input").not("#service").css({"flex-basis":"90%","margin-bottom":"10px"});
+         $("textarea").css({"flex-basis":"90%","margin-bottom":"10px"});
+      } else if (vpw >= 768 && vpw < 992) {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("form").css("height","615px");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      } else if (vpw >= 992 && vpw < 1200) {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      } else {
+         $("#lg-pageTitle").show();
+         $("#sm-pageTitle").css("display","none");
+         $("label").css({"flex-basis":"125px","display":"inline-block"});
+         $("form input").not("#service").css({"flex-basis":"185px","display":"inline-block"});
+         $("form textarea").css({"flex-basis":"510px","display":"inline-block"});
+      }
+   });
+   $("#sysDevDesc").click(function(){
+      $("#sysDevPara").toggle();
+      $(this).toggle();
+      $("#sysDevDescHide").toggle();
+   });
+   $("#sysDevDescHide").click(function(){
+      $("#sysDevPara").toggle();
+      $(this).toggle();
+      $("#sysDevDesc").toggle();
+   });
+function request() {
+      var firstName = $("#firstName").val();
+      var lastName = $("#lastName").val();
+      var email = $("#email").val();
+      var phone = $("#phone").val();
+      var description = $("#description").val();
+      var service = $("#service").val();
+      var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {
+               let pattern = /Error:/;
+               let resp = this.responseText
+               if (pattern.test(resp) == 1) {
+                   alert(resp);
+               } else {
+               $("#confirmFirst").text(firstName);
+               $("#confirmLast").text(lastName);
+               $("#confirmEmail").text(email);
+               $("#confirmPhone").text(phone);
+               $("#confirmDesc").text(description);
+               $("#confirmService").text(service);
+               $("#mainPanel").hide();
+               $( window ).scrollTop(0);
+               $("#confirmPanel").fadeIn(300, function() {
+                   let vpw = $( window ).width();
+                   if ( vpw <= 768 ) {
+                      $("#lgConfirmTitle").css("display","none");
+                      $("#smConfirmTitle").fadeIn(100);
+                      //$("#confirm-message").show();
+                      //$("#confirm-message").text(resp);
+                   } else {
+                      $("#lgConfirmTitle").fadeIn(100);
+                      $("#smConfirmTitle").css("display","none");
+                      //$("#confirm-message").show();
+                      //$("#confirm-message").text(resp);
+                   }
+                });
+              }
+            }
+          }
+        }
+        xhttp.open("POST", "../requests.php");
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("inputs=" + firstName + "|" + lastName + "|" + email + "|" + phone + "|" + description + "|" + service);
+    }
+   $("#backtohome").click(function(){
+      window.location.assign("/"); 
+   });
+</script>
